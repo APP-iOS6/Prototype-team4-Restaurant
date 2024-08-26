@@ -9,10 +9,15 @@
 
 # Scenario
 [ 소개 ]
+
 <img width="800" alt="Frame 3" src="https://github.com/user-attachments/assets/64621574-1684-481d-85c9-b8a319da0379">
+
 [ 회원가입 후, 서비스 이용 ]
+
 <img width="800" alt="222" src="https://github.com/user-attachments/assets/9e784f32-c2f9-4582-9d17-19f9a309d15e">
+
 [ 알림 서비스 ]
+
 <img width="800" alt="666" src="https://github.com/user-attachments/assets/5d990394-2bba-4d0b-8252-a176e812a2ac">
 
 # UI
