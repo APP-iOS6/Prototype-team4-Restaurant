@@ -60,7 +60,7 @@ class MenuViewController : UIViewController, UITableViewDataSource, UITableViewD
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             titleView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 50),
-            titleView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 15)
+            titleView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10)
             ])
     }
     

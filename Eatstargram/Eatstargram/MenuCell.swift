@@ -11,7 +11,7 @@ class MenuCell: UITableViewCell {
     
     public lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.textAlignment = .left
         return label
     }()
     
@@ -39,6 +39,7 @@ class MenuCell: UITableViewCell {
         menuStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             menuStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             menuStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             menuStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
