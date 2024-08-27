@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let addViewController = AddViewController()
         addViewController.tabBarItem = UITabBarItem(title: "추가", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 1)
         
-        let userViewController = UserViewController()
+        let userViewController = ProfileViewController()
         userViewController.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 2)
         
         let settingViewController = SettingViewController()

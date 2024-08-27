@@ -12,6 +12,11 @@
 		CEBAB97E2C7E0F590009FA3A /* ChoiceStarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB97D2C7E0F590009FA3A /* ChoiceStarViewController.swift */; };
 		CEBAB9802C7E136A0009FA3A /* ChoiceAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB97F2C7E136A0009FA3A /* ChoiceAreaViewController.swift */; };
 		CEBAB9822C7E186F0009FA3A /* ChoiceFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB9812C7E186F0009FA3A /* ChoiceFoodViewController.swift */; };
+		2C861B532C7D8782002DC0ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B522C7D8782002DC0ED /* ProfileViewController.swift */; };
+		2C861B552C7DAF3D002DC0ED /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B542C7DAF3D002DC0ED /* CategoryViewController.swift */; };
+		2C861B592C7DC9CF002DC0ED /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B582C7DC9CF002DC0ED /* FavoriteViewController.swift */; };
+		2C861B5D2C7E1F5C002DC0ED /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B5C2C7E1F5C002DC0ED /* FavoriteModel.swift */; };
+		2C861B5F2C7E1F7B002DC0ED /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B5E2C7E1F7B002DC0ED /* ProfileModel.swift */; };
 		CED3AF0B2C7D6C0B0006DA27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0A2C7D6C0B0006DA27 /* AppDelegate.swift */; };
 		CED3AF0D2C7D6C0B0006DA27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0C2C7D6C0B0006DA27 /* SceneDelegate.swift */; };
 		CED3AF0F2C7D6C0B0006DA27 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0E2C7D6C0B0006DA27 /* MainController.swift */; };
@@ -40,6 +45,11 @@
 		CEBAB97D2C7E0F590009FA3A /* ChoiceStarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceStarViewController.swift; sourceTree = "<group>"; };
 		CEBAB97F2C7E136A0009FA3A /* ChoiceAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceAreaViewController.swift; sourceTree = "<group>"; };
 		CEBAB9812C7E186F0009FA3A /* ChoiceFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceFoodViewController.swift; sourceTree = "<group>"; };
+		2C861B522C7D8782002DC0ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2C861B542C7DAF3D002DC0ED /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		2C861B582C7DC9CF002DC0ED /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		2C861B5C2C7E1F5C002DC0ED /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
+		2C861B5E2C7E1F7B002DC0ED /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CED3AF072C7D6C0B0006DA27 /* Eatstargram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eatstargram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED3AF0A2C7D6C0B0006DA27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED3AF0C2C7D6C0B0006DA27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +151,9 @@
 				EBC970072C7DB256005AC526 /* MapModalViewController.swift */,
 				CED3AF232C7D6EBB0006DA27 /* UserViewController.swift */,
 				CED3AF252C7D6EC60006DA27 /* SettingViewController.swift */,
+				2C861B522C7D8782002DC0ED /* ProfileViewController.swift */,
+				2C861B582C7DC9CF002DC0ED /* FavoriteViewController.swift */,
+				2C861B542C7DAF3D002DC0ED /* CategoryViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -151,6 +164,8 @@
 				FB83B7782C7DB856004070B1 /* Review.swift */,
 				FB83B7802C7E003F004070B1 /* Menu.swift */,
 				CEBAB9782C7E06A50009FA3A /* itemData.swift */,
+				2C861B5C2C7E1F5C002DC0ED /* FavoriteModel.swift */,
+				2C861B5E2C7E1F7B002DC0ED /* ProfileModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -242,10 +257,16 @@
 				CED3AF242C7D6EBB0006DA27 /* UserViewController.swift in Sources */,
 				FB83B77F2C7DCB05004070B1 /* MenuViewController.swift in Sources */,
 				FB83B7792C7DB856004070B1 /* Review.swift in Sources */,
+				2C861B5D2C7E1F5C002DC0ED /* FavoriteModel.swift in Sources */,
+				CED3AF242C7D6EBB0006DA27 /* UserViewController.swift in Sources */,
+				2C861B5F2C7E1F7B002DC0ED /* ProfileModel.swift in Sources */,
 				CED3AF0B2C7D6C0B0006DA27 /* AppDelegate.swift in Sources */,
 				CEBAB97E2C7E0F590009FA3A /* ChoiceStarViewController.swift in Sources */,
 				CEBAB9802C7E136A0009FA3A /* ChoiceAreaViewController.swift in Sources */,
 				CED3AF222C7D6EA90006DA27 /* AddViewController.swift in Sources */,
+				2C861B592C7DC9CF002DC0ED /* FavoriteViewController.swift in Sources */,
+				2C861B552C7DAF3D002DC0ED /* CategoryViewController.swift in Sources */,
+				2C861B532C7D8782002DC0ED /* ProfileViewController.swift in Sources */,
 				CED3AF0D2C7D6C0B0006DA27 /* SceneDelegate.swift in Sources */,
 				FB83B7872C7E14A9004070B1 /* PlaceViewController.swift in Sources */,
 				FB83B7732C7D718E004070B1 /* RestaurantDetailViewController.swift in Sources */,
@@ -409,6 +430,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U4BQZ3AXAA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eatstargram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -441,6 +463,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U4BQZ3AXAA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eatstargram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
