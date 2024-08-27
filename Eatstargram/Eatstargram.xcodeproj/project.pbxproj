@@ -21,6 +21,7 @@
 		CED3AF222C7D6EA90006DA27 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF212C7D6EA90006DA27 /* AddViewController.swift */; };
 		CED3AF242C7D6EBB0006DA27 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF232C7D6EBB0006DA27 /* UserViewController.swift */; };
 		CED3AF262C7D6EC60006DA27 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF252C7D6EC60006DA27 /* SettingViewController.swift */; };
+		EBC970082C7DB256005AC526 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC970072C7DB256005AC526 /* MapModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CED3AF212C7D6EA90006DA27 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		CED3AF232C7D6EBB0006DA27 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		CED3AF252C7D6EC60006DA27 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		EBC970072C7DB256005AC526 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				CEBAB9832C7E1AB40009FA3A /* ChoiceController */,
 				CED3AF0E2C7D6C0B0006DA27 /* MainController.swift */,
 				CED3AF212C7D6EA90006DA27 /* AddViewController.swift */,
+				EBC970072C7DB256005AC526 /* MapModalViewController.swift */,
 				CED3AF232C7D6EBB0006DA27 /* UserViewController.swift */,
 				CED3AF252C7D6EC60006DA27 /* SettingViewController.swift */,
 			);
@@ -213,6 +216,7 @@
 				CED3AF0D2C7D6C0B0006DA27 /* SceneDelegate.swift in Sources */,
 				CEBAB9822C7E186F0009FA3A /* ChoiceFoodViewController.swift in Sources */,
 				CED3AF262C7D6EC60006DA27 /* SettingViewController.swift in Sources */,
+				EBC970082C7DB256005AC526 /* MapModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
