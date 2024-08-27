@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEBAB9792C7E06A50009FA3A /* itemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB9782C7E06A50009FA3A /* itemData.swift */; };
+		CEBAB97C2C7E0EA20009FA3A /* ImageFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB97B2C7E0EA20009FA3A /* ImageFetch.swift */; };
+		CEBAB97E2C7E0F590009FA3A /* ChoiceStarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB97D2C7E0F590009FA3A /* ChoiceStarViewController.swift */; };
+		CEBAB9802C7E136A0009FA3A /* ChoiceAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB97F2C7E136A0009FA3A /* ChoiceAreaViewController.swift */; };
+		CEBAB9822C7E186F0009FA3A /* ChoiceFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB9812C7E186F0009FA3A /* ChoiceFoodViewController.swift */; };
 		CED3AF0B2C7D6C0B0006DA27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0A2C7D6C0B0006DA27 /* AppDelegate.swift */; };
 		CED3AF0D2C7D6C0B0006DA27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0C2C7D6C0B0006DA27 /* SceneDelegate.swift */; };
 		CED3AF0F2C7D6C0B0006DA27 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0E2C7D6C0B0006DA27 /* MainController.swift */; };
@@ -26,9 +31,15 @@
 		FB83B7832C7E00BF004070B1 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83B7822C7E00BF004070B1 /* Menus.swift */; };
 		FB83B7852C7E01C9004070B1 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83B7842C7E01C9004070B1 /* MenuCell.swift */; };
 		FB83B7872C7E14A9004070B1 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83B7862C7E14A9004070B1 /* PlaceViewController.swift */; };
+		EBC970082C7DB256005AC526 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC970072C7DB256005AC526 /* MapModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CEBAB9782C7E06A50009FA3A /* itemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemData.swift; sourceTree = "<group>"; };
+		CEBAB97B2C7E0EA20009FA3A /* ImageFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetch.swift; sourceTree = "<group>"; };
+		CEBAB97D2C7E0F590009FA3A /* ChoiceStarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceStarViewController.swift; sourceTree = "<group>"; };
+		CEBAB97F2C7E136A0009FA3A /* ChoiceAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceAreaViewController.swift; sourceTree = "<group>"; };
+		CEBAB9812C7E186F0009FA3A /* ChoiceFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceFoodViewController.swift; sourceTree = "<group>"; };
 		CED3AF072C7D6C0B0006DA27 /* Eatstargram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eatstargram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED3AF0A2C7D6C0B0006DA27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED3AF0C2C7D6C0B0006DA27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +61,7 @@
 		FB83B7822C7E00BF004070B1 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 		FB83B7842C7E01C9004070B1 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		FB83B7862C7E14A9004070B1 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		EBC970072C7DB256005AC526 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +75,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEBAB97A2C7E0E930009FA3A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CEBAB97B2C7E0EA20009FA3A /* ImageFetch.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		CEBAB9832C7E1AB40009FA3A /* ChoiceController */ = {
+			isa = PBXGroup;
+			children = (
+				CEBAB97D2C7E0F590009FA3A /* ChoiceStarViewController.swift */,
+				CEBAB97F2C7E136A0009FA3A /* ChoiceAreaViewController.swift */,
+				CEBAB9812C7E186F0009FA3A /* ChoiceFoodViewController.swift */,
+			);
+			name = ChoiceController;
+			sourceTree = "<group>";
+		};
 		CED3AEFE2C7D6C0A0006DA27 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +112,7 @@
 		CED3AF092C7D6C0B0006DA27 /* Eatstargram */ = {
 			isa = PBXGroup;
 			children = (
+				CEBAB97A2C7E0E930009FA3A /* Extension */,
 				CED3AF282C7D70650006DA27 /* Models */,
 				CED3AF292C7D70780006DA27 /* Data */,
 				CED3AF272C7D6ECC0006DA27 /* ViewController */,
@@ -98,6 +129,7 @@
 		CED3AF272C7D6ECC0006DA27 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CEBAB9832C7E1AB40009FA3A /* ChoiceController */,
 				CED3AF0E2C7D6C0B0006DA27 /* MainController.swift */,
 				CED3AF212C7D6EA90006DA27 /* AddViewController.swift */,
 				FB83B77C2C7DBF02004070B1 /* ReviewCell.swift */,
@@ -106,6 +138,7 @@
 				FB83B7842C7E01C9004070B1 /* MenuCell.swift */,
 				FB83B77E2C7DCB05004070B1 /* MenuViewController.swift */,
 				FB83B7862C7E14A9004070B1 /* PlaceViewController.swift */,
+				EBC970072C7DB256005AC526 /* MapModalViewController.swift */,
 				CED3AF232C7D6EBB0006DA27 /* UserViewController.swift */,
 				CED3AF252C7D6EC60006DA27 /* SettingViewController.swift */,
 			);
@@ -117,6 +150,7 @@
 			children = (
 				FB83B7782C7DB856004070B1 /* Review.swift */,
 				FB83B7802C7E003F004070B1 /* Menu.swift */,
+				CEBAB9782C7E06A50009FA3A /* itemData.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -201,12 +235,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBAB97C2C7E0EA20009FA3A /* ImageFetch.swift in Sources */,
 				CED3AF0F2C7D6C0B0006DA27 /* MainController.swift in Sources */,
 				FB83B77B2C7DBC63004070B1 /* Reviews.swift in Sources */,
+				CEBAB9792C7E06A50009FA3A /* itemData.swift in Sources */,
 				CED3AF242C7D6EBB0006DA27 /* UserViewController.swift in Sources */,
 				FB83B77F2C7DCB05004070B1 /* MenuViewController.swift in Sources */,
 				FB83B7792C7DB856004070B1 /* Review.swift in Sources */,
 				CED3AF0B2C7D6C0B0006DA27 /* AppDelegate.swift in Sources */,
+				CEBAB97E2C7E0F590009FA3A /* ChoiceStarViewController.swift in Sources */,
+				CEBAB9802C7E136A0009FA3A /* ChoiceAreaViewController.swift in Sources */,
 				CED3AF222C7D6EA90006DA27 /* AddViewController.swift in Sources */,
 				CED3AF0D2C7D6C0B0006DA27 /* SceneDelegate.swift in Sources */,
 				FB83B7872C7E14A9004070B1 /* PlaceViewController.swift in Sources */,
@@ -217,6 +255,9 @@
 				FB83B7772C7D9CAC004070B1 /* RestaurantDetailViewController+UI.swift in Sources */,
 				CED3AF262C7D6EC60006DA27 /* SettingViewController.swift in Sources */,
 				FB83B77D2C7DBF02004070B1 /* ReviewCell.swift in Sources */,
+				CEBAB9822C7E186F0009FA3A /* ChoiceFoodViewController.swift in Sources */,
+				CED3AF262C7D6EC60006DA27 /* SettingViewController.swift in Sources */,
+				EBC970082C7DB256005AC526 /* MapModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
