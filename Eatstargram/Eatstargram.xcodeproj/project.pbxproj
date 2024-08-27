@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C861B532C7D8782002DC0ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B522C7D8782002DC0ED /* ProfileViewController.swift */; };
+		2C861B552C7DAF3D002DC0ED /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B542C7DAF3D002DC0ED /* CategoryViewController.swift */; };
+		2C861B592C7DC9CF002DC0ED /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B582C7DC9CF002DC0ED /* FavoriteViewController.swift */; };
 		CED3AF0B2C7D6C0B0006DA27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0A2C7D6C0B0006DA27 /* AppDelegate.swift */; };
 		CED3AF0D2C7D6C0B0006DA27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0C2C7D6C0B0006DA27 /* SceneDelegate.swift */; };
 		CED3AF0F2C7D6C0B0006DA27 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AF0E2C7D6C0B0006DA27 /* MainController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		2C861B522C7D8782002DC0ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2C861B542C7DAF3D002DC0ED /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		2C861B582C7DC9CF002DC0ED /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		CED3AF072C7D6C0B0006DA27 /* Eatstargram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eatstargram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED3AF0A2C7D6C0B0006DA27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED3AF0C2C7D6C0B0006DA27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				CED3AF232C7D6EBB0006DA27 /* UserViewController.swift */,
 				CED3AF252C7D6EC60006DA27 /* SettingViewController.swift */,
 				2C861B522C7D8782002DC0ED /* ProfileViewController.swift */,
+				2C861B582C7DC9CF002DC0ED /* FavoriteViewController.swift */,
+				2C861B542C7DAF3D002DC0ED /* CategoryViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -178,6 +184,8 @@
 				CED3AF242C7D6EBB0006DA27 /* UserViewController.swift in Sources */,
 				CED3AF0B2C7D6C0B0006DA27 /* AppDelegate.swift in Sources */,
 				CED3AF222C7D6EA90006DA27 /* AddViewController.swift in Sources */,
+				2C861B592C7DC9CF002DC0ED /* FavoriteViewController.swift in Sources */,
+				2C861B552C7DAF3D002DC0ED /* CategoryViewController.swift in Sources */,
 				2C861B532C7D8782002DC0ED /* ProfileViewController.swift in Sources */,
 				CED3AF0D2C7D6C0B0006DA27 /* SceneDelegate.swift in Sources */,
 				CED3AF262C7D6EC60006DA27 /* SettingViewController.swift in Sources */,
@@ -332,6 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U4BQZ3AXAA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eatstargram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -363,6 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U4BQZ3AXAA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eatstargram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
