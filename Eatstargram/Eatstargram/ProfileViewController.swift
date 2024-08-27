@@ -7,13 +7,6 @@
 
 import UIKit
 
-struct Profile{
-    let name: String
-    let description: String
-    let image: String
-    static let dummy = Profile(name: "김철수", description: "안녕하세요.", image: "nop")
-}
-
 class  ProfileViewController: UIViewController{
     let profile = Profile.dummy
     let categoryViewController = CategoryViewController()
@@ -124,11 +117,11 @@ class  ProfileViewController: UIViewController{
             categoryViewController.hStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             categoryViewController.hStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             categoryViewController.hStackView.heightAnchor.constraint(equalToConstant: 100),
-            
-            favoriteViewController.favoriteBackgroundView.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor, constant: 50),
-            favoriteViewController.favoriteBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            favoriteViewController.favoriteBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            favoriteViewController.favoriteBackgroundView.heightAnchor.constraint(equalToConstant: 100)
+           // 좋아요 리스트 레이아웃
+            favoriteViewController.scrollView.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor, constant: 50),
+            favoriteViewController.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            favoriteViewController.scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            favoriteViewController.scrollView.heightAnchor.constraint(equalToConstant: 500)
         ])
     }
     func configureAddSubView(){
@@ -148,6 +141,7 @@ class  ProfileViewController: UIViewController{
         
         self.addChild(favoriteViewController)
         self.view.addSubview(favoriteViewController.view)
+        
     }
 }
 

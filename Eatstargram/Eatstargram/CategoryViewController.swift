@@ -9,7 +9,7 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     let itemList: [String] = ["리뷰", "좋아요", "평균 평점"]
-    let itemCount: [Float] = [32, 2, 4.5]
+    let itemCount: [String] = ["32개", "2개", "4.5"]
     lazy var hStackView: UIStackView = {
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
