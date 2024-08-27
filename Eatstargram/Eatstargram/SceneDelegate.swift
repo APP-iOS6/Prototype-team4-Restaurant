@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let mainViewController = MainController()
+        let mainViewController = RestaurantDetailViewController()
         mainViewController.tabBarItem = UITabBarItem(title: "메인화면", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 0)
         
         let addViewController = AddViewController()
