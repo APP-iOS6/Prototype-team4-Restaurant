@@ -110,12 +110,16 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         
         let cell: ReviewCell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
         
+        
         let review: Review = reviews[indexPath.row]
         
         cell.nameLabel.text = "닉네임 : \(review.name)"
         cell.visitLabel.text = "방문 횟수 : \(review.visitCnt)회"
         
         var cnt = Int(review.point)
+        
+        cell.reviewRateView.subviews.forEach { $0.removeFromSuperview() }
+        
         for _ in 0..<cnt {
             cell.reviewRateView.addArrangedSubview(createCompleteStar())
         }

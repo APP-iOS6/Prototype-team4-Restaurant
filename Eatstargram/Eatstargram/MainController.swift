@@ -208,15 +208,9 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // cell을 선택할 때 처리
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print("Hello : \(food[indexPath.row].link)")
-//        if let url = URL(string: food[indexPath.row].link) {
-//            let viewController = SFSafariViewController(url: url)
-//            
-//            // navigationController?.pushViewController(viewController, animated: true)
-//            
-//            viewController.modalPresentationStyle = .pageSheet
-//            self.present(viewController, animated: true)
-//        }
+        let DetailViewController = RestaurantDetailViewController()
+        self.present(DetailViewController, animated: true)
+        DetailViewController.sheetPresentationController?.detents = [.large(), .medium()]
     }
 
 class MyCell: UICollectionViewCell {
