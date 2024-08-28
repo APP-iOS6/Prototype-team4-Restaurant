@@ -14,6 +14,7 @@
 		2C861B5F2C7E1F7B002DC0ED /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C861B5E2C7E1F7B002DC0ED /* ProfileModel.swift */; };
 		CE2084382C7F13830068AA5D /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2084372C7F13830068AA5D /* Info.swift */; };
 		CE20843A2C7F13BB0068AA5D /* Infos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2084392C7F13BB0068AA5D /* Infos.swift */; };
+		CE274BDE2C7F1DBC00AC8FDE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE274BDD2C7F1DBC00AC8FDE /* NotificationViewController.swift */; };
 		CEBAB9792C7E06A50009FA3A /* itemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB9782C7E06A50009FA3A /* itemData.swift */; };
 		CEBAB97C2C7E0EA20009FA3A /* ImageFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB97B2C7E0EA20009FA3A /* ImageFetch.swift */; };
 		CEBAB97E2C7E0F590009FA3A /* ChoiceStarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAB97D2C7E0F590009FA3A /* ChoiceStarViewController.swift */; };
@@ -49,6 +50,7 @@
 		2C861B5E2C7E1F7B002DC0ED /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE2084372C7F13830068AA5D /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		CE2084392C7F13BB0068AA5D /* Infos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Infos.swift; sourceTree = "<group>"; };
+		CE274BDD2C7F1DBC00AC8FDE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		CEBAB9782C7E06A50009FA3A /* itemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemData.swift; sourceTree = "<group>"; };
 		CEBAB97B2C7E0EA20009FA3A /* ImageFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetch.swift; sourceTree = "<group>"; };
 		CEBAB97D2C7E0F590009FA3A /* ChoiceStarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceStarViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				FB83B77C2C7DBF02004070B1 /* ReviewCell.swift */,
 				CE2084372C7F13830068AA5D /* Info.swift */,
 				CE2084392C7F13BB0068AA5D /* Infos.swift */,
+				CE274BDD2C7F1DBC00AC8FDE /* NotificationViewController.swift */,
 				FB83B7722C7D718E004070B1 /* RestaurantDetailViewController.swift */,
 				FB83B7762C7D9CAC004070B1 /* RestaurantDetailViewController+UI.swift */,
 				FB83B7842C7E01C9004070B1 /* MenuCell.swift */,
@@ -258,6 +261,7 @@
 			files = (
 				CEBAB97C2C7E0EA20009FA3A /* ImageFetch.swift in Sources */,
 				CED3AF0F2C7D6C0B0006DA27 /* MainController.swift in Sources */,
+				CE274BDE2C7F1DBC00AC8FDE /* NotificationViewController.swift in Sources */,
 				FB83B77B2C7DBC63004070B1 /* Reviews.swift in Sources */,
 				CE2084382C7F13830068AA5D /* Info.swift in Sources */,
 				CEBAB9792C7E06A50009FA3A /* itemData.swift in Sources */,

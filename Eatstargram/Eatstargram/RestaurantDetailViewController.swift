@@ -156,6 +156,10 @@ extension RestaurantDetailViewController {
     @objc func clickLikeButton() {
         isLike.toggle()
         likeButton.setImage(UIImage(systemName: isLike ? "heart.fill" : "heart"), for: .normal)
+        
+        let NotificationView = NotificationViewController()
+        self.present(NotificationView, animated: true)
+        NotificationView.modalPresentationStyle = .fullScreen
     }
     
     func clickMenuButton() {
