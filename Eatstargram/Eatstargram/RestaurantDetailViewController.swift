@@ -6,7 +6,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     lazy var stackView: UIStackView = createStackView(axis: .vertical, spacing: 10)
     
     lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "이미지1"))
+        let imageView = UIImageView(image: UIImage(named: "image1"))
         return imageView
     }()
     

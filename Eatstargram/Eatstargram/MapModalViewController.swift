@@ -39,7 +39,7 @@ class MapModalViewController: UIViewController {
     
     private lazy var mapImageView: UIImageView = {   //실제로는 맵뷰로 할 예정
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "멋사.png")
+        imageView.image = UIImage(named: "locationMap.png")
         imageView.backgroundColor = .lightGray
         return imageView
     }()

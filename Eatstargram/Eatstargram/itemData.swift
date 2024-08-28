@@ -164,7 +164,7 @@ struct Food: Identifiable {
 
 let foods: [Food] = [
     Food(star: "3", location: .seoul, foodname: .jjajangmyeon, image: "https://sitem.ssgcdn.com/64/98/58/item/1000524589864_i1_750.jpg", categori: .korean),
-    Food(star: "3", location: .seoul, foodname: .jjajangmyeon, image: "https://sitem.ssgcdn.com/64/98/58/item/1000524589864_i1_750.jpg", categori: .korean),
-    Food(star: "3", location: .seoul, foodname: .jjajangmyeon, image: "https://sitem.ssgcdn.com/64/98/58/item/1000524589864_i1_750.jpg", categori: .korean),
-    Food(star: "3", location: .seoul, foodname: .jjajangmyeon, image: "https://sitem.ssgcdn.com/64/98/58/item/1000524589864_i1_750.jpg", categori: .korean),
+    Food(star: "5", location: .jeonnam, foodname: .bibimbap, image: "https://previews.123rf.com/images/meykitchen/meykitchen2305/meykitchen230502570/205175374-%EB%B9%84%EB%B9%94%EB%B0%A5-%EB%8F%BC%EC%A7%80%EA%B3%A0%EA%B8%B0-%EB%B0%A5-%EB%8B%AC%EA%B1%80-%ED%94%84%EB%9D%BC%EC%9D%B4-%EC%95%BC%EC%B1%84.jpg", categori: .korean),
+    Food(star: "4", location: .busan, foodname: .bulgogi, image: "https://i.namu.wiki/i/1fMv9BlDolXCcO2TlBW0zuV14FbmYAQf71zBGjY8RvtoP3x-zDBo0jiQxy4gdQ8ipfOqa9NNgGc5AOPVfRHlzQ.webp", categori: .korean),
+    Food(star: "2", location: .daegu, foodname: .tteokbokki, image: "https://mblogthumb-phinf.pstatic.net/MjAyMjA2MTJfMTY5/MDAxNjU1MDQzNTUxNzMy.5BYZF9-kftaq0d7ISLW02xsdptIObpIXbhJbRVDkaLQg.b4r6k9_CKWTSodj6V6-szOjMzNx_VMH-pklaVdbNGMEg.JPEG.dmsg55/20220612%EF%BC%BF183252.jpg?type=w800", categori: .korean),
 ]

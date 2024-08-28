@@ -93,6 +93,9 @@ extension RestaurantDetailViewController {
             
             imageView.heightAnchor.constraint(equalToConstant: 260),
             
+            imageView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            
             headStackView.heightAnchor.constraint(equalToConstant: 35),
             headStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 20),
             headStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30),

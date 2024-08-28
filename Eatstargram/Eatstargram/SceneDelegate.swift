@@ -11,12 +11,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
-        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        // MainController를 UINavigationController로 래핑
         let mainViewController = MainController()
-        mainViewController.tabBarItem = UITabBarItem(title: "메인화면", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 0)
+        let mainNavigationController = UINavigationController(rootViewController: mainViewController)
+        mainNavigationController.tabBarItem = UITabBarItem(title: "메인화면", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 0)
         
         let addViewController = AddViewController()
         addViewController.tabBarItem = UITabBarItem(title: "추가", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 1)
@@ -28,8 +29,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         settingViewController.tabBarItem = UITabBarItem(title: "설정", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 3)
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [mainViewController, addViewController, userViewController, settingViewController]
+        tabBarController.viewControllers = [mainNavigationController, addViewController, userViewController, settingViewController]
+
+        window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

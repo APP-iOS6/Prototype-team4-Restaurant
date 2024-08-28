@@ -193,10 +193,12 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // cell의 재활용
         let cell: MyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! MyCell
         
+        let imageURL = foodList[indexPath.row].image
+        
         // 이미지 받아오기
         Task{
             do {
-                let urlImage = try await UIImage.fetchImage(from: foodList[indexPath.row].image)
+                let urlImage = try await UIImage.fetchImage(from: imageURL)
                 DispatchQueue.main.async {
                     cell.label.image = urlImage
                 }
@@ -209,8 +211,8 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // cell을 선택할 때 처리
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let DetailViewController = RestaurantDetailViewController()
-        self.present(DetailViewController, animated: true)
-        DetailViewController.sheetPresentationController?.detents = [.large(), .medium()]
+        self.navigationController?.pushViewController(DetailViewController, animated: true)
+
     }
 
 class MyCell: UICollectionViewCell {
