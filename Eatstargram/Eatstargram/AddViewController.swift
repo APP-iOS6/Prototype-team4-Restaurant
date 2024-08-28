@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class AddViewController: UIViewController {
     
@@ -130,12 +131,19 @@ class AddViewController: UIViewController {
         return stackView
     }()
     
-    private var locationButton: UIButton = {
+    private lazy var locationButton: UIButton = {
         let button = UIButton(type: .custom)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 5
         button.setTitle("현 위치", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        
+        let action = UIAction { [weak self] _ in
+               
+            self?.locationTextField.text = "서울특별시"
+           }
+           
+           button.addAction(action, for: .touchUpInside)
         return button
     }()
     
@@ -190,15 +198,18 @@ class AddViewController: UIViewController {
         return imageView
     }()
     
-    private var addImageButton: UIButton = {
+    private lazy var addImageButton: UIButton = {
         let button = UIButton(type: .custom)
         button.backgroundColor = .systemBlue
         button.setTitle("이미지 추가", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         //        print("abc")
+        
         return button
     }()
+    
     // MARK: - 갤러리 접근
+    //Privacy - Camera Usage Description로 접근허용은 아직 구현하지 않았음.
     private lazy var imagePickerController: UIImagePickerController = {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -278,6 +289,7 @@ class AddViewController: UIViewController {
         addImageButton.addAction(addImageAction, for: .touchUpInside)
         
     }
+    
     // MARK: - AutoLayOut
     
     private func setUpAutoLayout() {
@@ -310,8 +322,8 @@ class AddViewController: UIViewController {
             titleStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
         ])
         NSLayoutConstraint.activate([
-            nameTextField.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: -210),
-            locationTextField.leadingAnchor.constraint(equalTo: locationLabel.trailingAnchor, constant: -210),
+            nameTextField.widthAnchor.constraint(equalToConstant: 270),
+            locationTextField.widthAnchor.constraint(equalToConstant: 270),
             topStackView.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: 30),
             topStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
             topStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
@@ -352,11 +364,11 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         if let selectedImage = info[.originalImage] as? UIImage {
             addimageView.image = selectedImage
         }
-        picker.dismiss(animated: true)
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
