@@ -29,9 +29,16 @@ class ChoiceFoodViewController: UIViewController, UICollectionViewDelegate, UICo
         button.setTitleColor(.white, for: .normal)
         button.isEnabled = false
         
+        // 그림자 효과 추가
+            button.layer.shadowColor = UIColor.black.cgColor
+            button.layer.shadowOpacity = 0.2
+            button.layer.shadowOffset = CGSize(width: 0, height: 2)
+            button.layer.shadowRadius = 4
+            button.layer.masksToBounds = false
+        
         button.addAction(UIAction { [weak self] _ in
             if let selectedIndexPath = self?.selectedIndexPath {
-                let selectedCategory = FoodCategory.allCases[selectedIndexPath.item].displayName
+                let selectedCategory = Categori.allCases[selectedIndexPath.item].displayName
                 self?.choiceClosure?(selectedCategory)
             }
             self?.dismiss(animated: true, completion: nil)
@@ -90,20 +97,26 @@ class ChoiceFoodViewController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return FoodCategory.allCases.count
+        return Categori.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
-        // Clear previous content
-            cell.contentView.subviews.forEach { $0.removeFromSuperview() }
+        // 셀 중복을 막기 위한.. 임시 방편.. (해결하고 싶지만 못하는 내자신이 부끄부끄)
+        cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         
-        let category = FoodCategory.allCases[indexPath.item]
+        let category = Categori.allCases[indexPath.item]
         
         // Update cell appearance based on selected state
         cell.contentView.backgroundColor = indexPath == selectedIndexPath ? .blue : .lightGray
         cell.contentView.layer.cornerRadius = 8
+        
+        cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+            cell.layer.shadowRadius = 4
+            cell.layer.masksToBounds = false
         
         let label = UILabel()
         label.text = "\(category.displayName)"
@@ -136,7 +149,7 @@ class ChoiceFoodViewController: UIViewController, UICollectionViewDelegate, UICo
         selectedIndexPath = indexPath
         let selectedCell = collectionView.cellForItem(at: indexPath)
         selectedCell?.contentView.backgroundColor = .brown
-        closeButton.backgroundColor = .blue
+        closeButton.backgroundColor = .systemBlue
         closeButton.isEnabled = true // 클릭 되었을때만 허용
     }
 }
