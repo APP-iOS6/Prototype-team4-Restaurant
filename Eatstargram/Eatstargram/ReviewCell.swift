@@ -11,12 +11,29 @@ class ReviewCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .center
         return label
     }()
     
     lazy var visitLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
+        return label
+    }()
+    
+    lazy var reviewCntLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
+        return label
+    }()
+    
+    lazy var avgRateLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
         return label
     }()
     
@@ -27,13 +44,11 @@ class ReviewCell: UITableViewCell {
     
     lazy var reviewRateView: UIStackView = {
         let stackView = UIStackView()
-        stackView.tintColor = .red
         return stackView
     }()
     
     lazy var reviewContentLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .right
         return label
     }()
     
@@ -45,7 +60,15 @@ class ReviewCell: UITableViewCell {
         return stackView
     }()
     
-    lazy var headerStackView: UIStackView = {
+    lazy var firstHeaderStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .leading
+        return stackView
+    }()
+    
+    lazy var secondHeaderStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 5
@@ -67,36 +90,40 @@ class ReviewCell: UITableViewCell {
         
         contentView.addSubview(reviewStackView)
         
-        headerStackView.addArrangedSubview(nameLabel)
-        headerStackView.addArrangedSubview(visitLabel)
+        nameLabel.textAlignment = .left
         
-        reviewImageView.addSubview(reviewRateView)
+        firstHeaderStackView.addArrangedSubview(nameLabel)
+        firstHeaderStackView.addArrangedSubview(reviewCntLabel)
+        firstHeaderStackView.addArrangedSubview(avgRateLabel)
+        firstHeaderStackView.addArrangedSubview(visitLabel)
         
-        bodyStackView.addArrangedSubview(reviewImageView)
+        secondHeaderStackView.addArrangedSubview(reviewRateView)
+        
+//        reviewImageView.addSubview(reviewRateView)
+        
         bodyStackView.addArrangedSubview(reviewContentLabel)
+        bodyStackView.addArrangedSubview(reviewImageView)
         
-        reviewStackView.addArrangedSubview(headerStackView)
+        reviewStackView.addArrangedSubview(firstHeaderStackView)
+        reviewStackView.addArrangedSubview(secondHeaderStackView)
         reviewStackView.addArrangedSubview(bodyStackView)
         
         reviewRateView.translatesAutoresizingMaskIntoConstraints = false
         reviewImageView.translatesAutoresizingMaskIntoConstraints = false
         reviewStackView.translatesAutoresizingMaskIntoConstraints = false
+        secondHeaderStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             reviewImageView.heightAnchor.constraint(equalToConstant: 250),
-            nameLabel.leadingAnchor.constraint(equalTo: headerStackView.leadingAnchor, constant: 10),
-            visitLabel.trailingAnchor.constraint(equalTo: headerStackView.trailingAnchor, constant: -500),
-            reviewContentLabel.trailingAnchor.constraint(equalTo: bodyStackView.trailingAnchor, constant: -5),
-            reviewRateView.leadingAnchor.constraint(equalTo: reviewImageView.leadingAnchor, constant: 10),
-            reviewRateView.bottomAnchor.constraint(equalTo: reviewImageView.bottomAnchor, constant: -10),
-            reviewImageView.widthAnchor.constraint(equalTo:contentView.widthAnchor),
-            reviewStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            reviewStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            reviewStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            reviewStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            
-//            emojiLabel.widthAnchor.constraint(equalToConstant: 30),
-//            memoImageView.heightAnchor.constraint(equalTo: memoImageView.widthAnchor), // 정사각형 만들기
+            firstHeaderStackView.leadingAnchor.constraint(equalTo: reviewStackView.leadingAnchor),
+            firstHeaderStackView.trailingAnchor.constraint(equalTo: reviewStackView.trailingAnchor),
+            secondHeaderStackView.leadingAnchor.constraint(equalTo: reviewStackView.leadingAnchor),
+            secondHeaderStackView.trailingAnchor.constraint(equalTo: reviewStackView.leadingAnchor, constant: 110),
+            reviewImageView.widthAnchor.constraint(equalToConstant: 300),
+            reviewStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            reviewStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            reviewStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            reviewStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
         ])
     }
     
