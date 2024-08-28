@@ -8,7 +8,7 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
-    let itemList: [String] = ["리뷰", "좋아요", "평균 평점"]
+    let itemList: [String] = ["✏️ 리뷰", "❤️ 좋아요", "⭐️ 평균 평점"]
     let itemCount: [String] = ["32개", "2개", "4.5"]
     lazy var hStackView: UIStackView = {
         let hStackView = UIStackView()

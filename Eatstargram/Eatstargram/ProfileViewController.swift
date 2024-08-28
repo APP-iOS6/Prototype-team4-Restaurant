@@ -16,17 +16,23 @@ class  ProfileViewController: UIViewController{
         var stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 10
         stack.distribution = .fillEqually
 
        return stack
+    }()
+    lazy var editButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "pencil"), for: .normal)
+        button.tintColor = .black
+        
+        return button
     }()
     
     lazy var profileVStackView0: UIStackView = {
         var stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 10
         stack.distribution = .fillEqually
 
        return stack
@@ -40,7 +46,7 @@ class  ProfileViewController: UIViewController{
        return stack
     }()
     lazy var profileImage: UIImageView = {
-        let image = UIImage(systemName: "person.circle")
+        var image = UIImage(systemName: "person.circle")
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -98,27 +104,45 @@ class  ProfileViewController: UIViewController{
         stackV.translatesAutoresizingMaskIntoConstraints = false
         return stackV
     }()
+    lazy var IconInfoHstack: UIStackView = {
+       let hStack = UIStackView()
+        hStack.translatesAutoresizingMaskIntoConstraints = false
+        hStack.axis = .horizontal
+        hStack.distribution = .fillEqually
+        hStack.spacing = 50
+        
+        return hStack
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
         configureAddSubView()
+        makeIconInfo()
         configureLayout()
     }
     func configureLayout(){
         NSLayoutConstraint.activate([
+            editButton.bottomAnchor.constraint(equalTo: profileHStackView.topAnchor, constant: 20),
+            editButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 330),
+            editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            editButton.heightAnchor.constraint(equalToConstant: 50),
             // 이름, 소개 레이아웃
+            
             profileHStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             profileHStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             profileHStackView.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant: -20),
             profileHStackView.heightAnchor.constraint(equalToConstant: 100),
             
+            
+
            // 카테고리 레이아웃..
             categoryViewController.hStackView.topAnchor.constraint(equalTo: profileHStackView.bottomAnchor, constant: 30),
             categoryViewController.hStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             categoryViewController.hStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            categoryViewController.hStackView.heightAnchor.constraint(equalToConstant: 100),
+            categoryViewController.hStackView.heightAnchor.constraint(equalToConstant: 80),
+            
            // 좋아요 리스트 레이아웃
             favoriteViewController.scrollView.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor, constant: 50),
             favoriteViewController.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -128,6 +152,8 @@ class  ProfileViewController: UIViewController{
     }
     func configureAddSubView(){
         view.addSubview(profileHStackView)
+        view.addSubview(editButton)
+        view.addSubview(IconInfoHstack)
         profileHStackView.addArrangedSubview(profileImage)
         profileHStackView.addArrangedSubview(profileVStackView0)
         profileHStackView.addArrangedSubview(profileVStackView)
@@ -144,6 +170,24 @@ class  ProfileViewController: UIViewController{
         self.addChild(favoriteViewController)
         self.view.addSubview(favoriteViewController.view)
         
+    }
+    func makeIconInfo(){
+        let iconInfoList: [String] = ["🚪: 방문횟수", "⭐️: 평균 별점"]
+        for i in iconInfoList{
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = i
+            label.font = .preferredFont(forTextStyle: .subheadline)
+            
+            NSLayoutConstraint.activate([
+                IconInfoHstack.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor),
+                IconInfoHstack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//                IconInfoVstack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+//                IconInfoVstack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                IconInfoHstack.heightAnchor.constraint(equalToConstant: 50)
+            ])
+            IconInfoHstack.addArrangedSubview(label)
+        }
     }
 }
 

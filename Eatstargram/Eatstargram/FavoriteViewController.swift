@@ -115,8 +115,8 @@ class FavoriteViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             vStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            vStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-            vStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
+            vStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            vStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             vStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
