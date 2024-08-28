@@ -3,7 +3,7 @@
 
 # 구동화면
 ![Simulator Screen Recording - iPhone 15 Pro - 2024-08-28 at 17 28 16](https://github.com/user-attachments/assets/ea177d20-509e-4dd7-b949-72962691f944)
-
+<img src="https://github.com/user-attachments/assets/3eba8462-440b-418f-a2cf-02b6330ffc36" style="width: 300px;" />
 # ADS
 작성자의 누적 방문 횟수를 기반으로 맛집 리스트를 확인하고,
 좋아요를 누른 가게 근처로 가게되면 알림을 받게 하는 앱
