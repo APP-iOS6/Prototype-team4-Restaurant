@@ -17,16 +17,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // MainController를 UINavigationController로 래핑
         let mainViewController = MainController()
         let mainNavigationController = UINavigationController(rootViewController: mainViewController)
-        mainNavigationController.tabBarItem = UITabBarItem(title: "메인화면", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 0)
+        mainNavigationController.tabBarItem = UITabBarItem(title: "메인화면", image: UIImage(systemName: "house.fill"), tag: 0)
         
         let addViewController = AddViewController()
-        addViewController.tabBarItem = UITabBarItem(title: "추가", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 1)
+        addViewController.tabBarItem = UITabBarItem(title: "추가", image: UIImage(systemName: "plus.circle.fill"), tag: 1)
         
         let userViewController = ProfileViewController()
-        userViewController.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 2)
+        userViewController.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(systemName: "person.circle.fill"), tag: 2)
         
         let settingViewController = SettingViewController()
-        settingViewController.tabBarItem = UITabBarItem(title: "설정", image: UIImage(systemName: "smallcircle.fill.circle.fill"), tag: 3)
+        settingViewController.tabBarItem = UITabBarItem(title: "설정", image: UIImage(systemName: "gearshape.fill"), tag: 3)
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [mainNavigationController, addViewController, userViewController, settingViewController]
