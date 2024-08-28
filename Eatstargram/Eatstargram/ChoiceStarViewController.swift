@@ -15,7 +15,7 @@ class ChoiceStarViewController: UIViewController, UICollectionViewDelegate, UICo
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "별점"
+        label.text = "평점"
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +28,13 @@ class ChoiceStarViewController: UIViewController, UICollectionViewDelegate, UICo
         button.backgroundColor = .gray
         button.setTitleColor(.white, for: .normal)
         button.isEnabled = false  // Disable button initially
+        
+        // 그림자 효과 추가
+            button.layer.shadowColor = UIColor.black.cgColor
+            button.layer.shadowOpacity = 0.2
+            button.layer.shadowOffset = CGSize(width: 0, height: 2)
+            button.layer.shadowRadius = 4
+            button.layer.masksToBounds = false
         
         button.addAction(UIAction { [weak self] _ in
             if let selectedIndexPath = self?.selectedIndexPath {
@@ -109,6 +116,12 @@ class ChoiceStarViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.contentView.backgroundColor = indexPath == selectedIndexPath ? .blue : .lightGray
         cell.contentView.layer.cornerRadius = 8
         
+        cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+            cell.layer.shadowRadius = 4
+            cell.layer.masksToBounds = false
+        
         let label = UILabel()
         label.text = "\(category.displayName)점"
         label.textAlignment = .center
@@ -142,7 +155,7 @@ class ChoiceStarViewController: UIViewController, UICollectionViewDelegate, UICo
         selectedCell?.contentView.backgroundColor = .brown
         
         // Enable and update close button
-        closeButton.backgroundColor = .blue
+        closeButton.backgroundColor = .systemBlue
         closeButton.isEnabled = true
     }
 }

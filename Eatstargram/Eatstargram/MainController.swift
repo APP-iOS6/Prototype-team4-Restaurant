@@ -12,15 +12,27 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // 상단에 보이는 옵션 버튼들
     private func categoriButton(title: String) -> UIButton {
         let button = UIButton()
-        button.backgroundColor = .gray
+        
+        // 버튼 배경 색상 및 텍스트 색상 설정
+        button.backgroundColor = .white
+        button.setTitleColor(.black, for: .normal)
         button.setTitle(title, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
         
+        // 쉐도우 효과 추가
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowOpacity = 0.3
+        button.layer.shadowRadius = 4
+        
+        // 버튼의 너비 설정
         NSLayoutConstraint.activate([
             button.widthAnchor.constraint(equalToConstant: 85),
+            button.heightAnchor.constraint(equalToConstant: 28),
         ])
         
+        // 버튼 클릭 액션 설정
         button.addAction(UIAction { _ in
             if let buttonTitle = button.title(for: .normal) {
                 print("\(buttonTitle)")
@@ -39,6 +51,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.present(StarViewController, animated: true)
             // StarViewController.modalPresentationStyle = .formSheet
             // StarViewController.sheetPresentationController?.detents = [.medium()]
+            // StarViewController.sheetPresentationController?.detents = [.large(), .medium()]
             if let sheet = StarViewController.sheetPresentationController {
                 sheet.detents = [
                     .custom { _ in
@@ -49,6 +62,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             StarViewController.choiceClosure = { selectedValue in
                 self.foodList = foods.filter { $0.star == "\(selectedValue)" }
+                self.optionLabel.text = "평점 : \(selectedValue)점대"
                 self.foodCollectionView.reloadData()
             }
         case "지역" :
@@ -59,36 +73,42 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             AreaViewController.choiceClosure = { selectedValue in
                 self.foodList = foods.filter { $0.location.rawValue == "\(selectedValue)" }
+                self.optionLabel.text = "지역 : \(selectedValue)"
                 self.foodCollectionView.reloadData()
             }
         case "음식" :
             let FoodViewController = ChoiceFoodViewController()
             self.present(FoodViewController, animated: true)
-            // StarViewController.modalPresentationStyle = .formSheet
-            FoodViewController.sheetPresentationController?.detents = [.large(), .medium()]
+            if let sheet = FoodViewController.sheetPresentationController {
+                sheet.detents = [
+                    .custom { _ in
+                        return 300
+                    }
+                ]
+            }
             
             FoodViewController.choiceClosure = { selectedValue in
-                self.foodList = foods.filter { $0.foodname.rawValue == "\(selectedValue)" }
+                self.foodList = foods.filter { $0.categori.rawValue == "\(selectedValue)" }
+                self.optionLabel.text = "음식 : \(selectedValue)"
                 self.foodCollectionView.reloadData()
             }
         default :
             self.foodList = foods.shuffled() // "전체" 버튼을 클릭시, 전체 리스트를 섞어서 출력
+            self.optionLabel.text = "전체"
             self.foodCollectionView.reloadData()
         }
     }
-    
-    
-    
+       
     // 버튼 클릭 시 색상 변경 로직
     private func buttonTapped(_ selectedButton: UIButton) {
         // 모든 버튼을 회색으로 설정
         buttonStack.arrangedSubviews.forEach { view in
             if let button = view as? UIButton {
-                button.backgroundColor = .gray
+                button.backgroundColor = .white
             }
         }
         // 클릭된 버튼을 파란색으로 설정
-        selectedButton.backgroundColor = .blue
+        selectedButton.backgroundColor = .systemBlue
     }
     
     // 카테고리 버튼을 스택으로 묶음
@@ -107,6 +127,28 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private lazy var optionLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private lazy var optionLabelStack: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 20
+        stackView.distribution = .equalSpacing
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        // StackView의 양쪽 여백 설정
+            stackView.isLayoutMarginsRelativeArrangement = true
+            stackView.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 10)
         return stackView
     }()
     
@@ -153,7 +195,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return stackView
     }()
     
-    private let categoris = ["전체", "평점", "지역", "음식"]  
+    private let categoris = ["전체", "평점", "지역", "음식"]
     var foodList: [Food] = []
     
     private lazy var foodCollectionView: UICollectionView = {
@@ -251,6 +293,19 @@ class MyCell: UICollectionViewCell {
         setupInterface()
         foodList = foods.shuffled()
         foodCollectionView.reloadData()
+        optionLabel.text = "현위치 - 고양시"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 네비게이션 바 숨기기
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // 다른 화면으로 이동할 때 네비게이션 바 다시 표시
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func setupInterface() {
@@ -270,17 +325,20 @@ class MyCell: UICollectionViewCell {
         titleStackView.addArrangedSubview(titleImageView)
         titleStackView.addArrangedSubview(titleMiniStackView)
         
+        optionLabelStack.addArrangedSubview(optionLabel)
+        
         foodCollectionStack.addArrangedSubview(foodCollectionView)
         
         mainStackView.addArrangedSubview(titleStackView)
         mainStackView.addArrangedSubview(buttonStack)
+        mainStackView.addArrangedSubview(optionLabelStack)
         mainStackView.addArrangedSubview(foodCollectionStack)
         
         NSLayoutConstraint.activate([
             mainStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             mainStackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
             foodCollectionStack.widthAnchor.constraint(equalToConstant: view.frame.width),
-            foodCollectionStack.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -50)
+            foodCollectionStack.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -150)
         ])
     }
 }

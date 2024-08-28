@@ -29,6 +29,13 @@ class ChoiceAreaViewController: UIViewController, UICollectionViewDelegate, UICo
         button.setTitleColor(.white, for: .normal)
         button.isEnabled = false  // Disable button initially
         
+        // 그림자 효과 추가
+            button.layer.shadowColor = UIColor.black.cgColor
+            button.layer.shadowOpacity = 0.2
+            button.layer.shadowOffset = CGSize(width: 0, height: 2)
+            button.layer.shadowRadius = 4
+            button.layer.masksToBounds = false
+        
         button.addAction(UIAction { [weak self] _ in
             if let selectedIndexPath = self?.selectedIndexPath {
                 let selectedCategory = Area.allCases[selectedIndexPath.item].displayName
@@ -95,14 +102,20 @@ class ChoiceAreaViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
-        // Clear previous content
-            cell.contentView.subviews.forEach { $0.removeFromSuperview() }
+        // 셀 중복을 막기 위한.. 임시 방편.. (해결하고 싶지만 못하는 내자신이 부끄부끄)
+        cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         
         let category = Area.allCases[indexPath.item]
         
         // Update cell appearance based on selected state
         cell.contentView.backgroundColor = indexPath == selectedIndexPath ? .brown : .lightGray
         cell.contentView.layer.cornerRadius = 8
+        
+        cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+            cell.layer.shadowRadius = 4
+            cell.layer.masksToBounds = false
         
         let label = UILabel()
         label.text = "\(category.displayName)"
@@ -137,7 +150,7 @@ class ChoiceAreaViewController: UIViewController, UICollectionViewDelegate, UICo
         selectedCell?.contentView.backgroundColor = .brown
         
         // Enable and update close button
-        closeButton.backgroundColor = .blue
+        closeButton.backgroundColor = .systemBlue
         closeButton.isEnabled = true
     }
 }

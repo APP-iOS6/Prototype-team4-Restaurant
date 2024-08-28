@@ -11,6 +11,7 @@ enum Categori: String, CaseIterable {
     case korean = "한식"
     case chinese = "중식"
     case japanese = "일식"
+    case western = "양식"
     
     var displayName: String {
         return self.rawValue
@@ -56,106 +57,10 @@ enum Area: String, CaseIterable {
     }
 }
 
-enum FoodCategory: String, CaseIterable {
-    case bibimbap = "비빔밥"  // 한국
-    case kimchi = "김치"      // 한국
-    case bulgogi = "불고기"  // 한국
-    case tteokbokki = "떡볶이"// 한국
-    case samgyeopsal = "삼겹살"// 한국
-    case jjajangmyeon = "짜장면" // 한국
-    case japchae = "잡채"    // 한국
-    case bibimnaengmyeon = "비빔냉면" // 한국
-    case galbitang = "갈비탕" // 한국
-    case doenjangjjigae = "된장찌개" // 한국
-    case kimchiJjigae = "김치찌개" // 한국
-    case sundubuJjigae = "순두부찌개" // 한국
-    case naengmyeon = "냉면" // 한국
-    case kimbap = "김밥"    // 한국
-    case dakgalbi = "닭갈비" // 한국
-    case hotteok = "호떡"   // 한국
-    case soondae = "순대"   // 한국
-    case mandu = "만두"     // 한국
-    case gochujang = "고추장" // 한국
-    case jjambbong = "짬뽕" // 한국
-    case banchan = "반찬"   // 한국
-    case kongguksu = "콩국수" // 한국
-    case kkanpunggi = "깐풍기" // 한국
-    case jeon = "전"       // 한국
-    case chadolbaegi = "차돌박이" // 한국
-    case seolleongtang = "설렁탕" // 한국
-    case chae = "채"       // 한국
-    case pajeon = "파전"   // 한국
-    case oden = "오뎅"     // 한국
-    case hwe = "회"       // 한국
-    case tonkotsuRamen = "돈코츠라멘" // 일본
-    case shoyuRamen = "쇼유라멘" // 일본
-    case misoRamen = "미소라멘" // 일본
-    case tempura = "텐푸라" // 일본
-    case sushi = "스시"     // 일본
-    case sashimi = "사시미" // 일본
-    case takoyaki = "타코야키" // 일본
-    case okonomiyaki = "오코노미야키" // 일본
-    case udon = "우동"     // 일본
-    case soba = "소바"     // 일본
-    case yakitori = "야키토리" // 일본
-    case gyoza = "교자"    // 일본
-    case tonkotsu = "돈코츠" // 일본
-    case katsudon = "가츠동" // 일본
-    case ramen = "라멘"    // 일본
-    case curry = "카레"    // 일본
-    case chawanmushi = "차완무시" // 일본
-    case teriyaki = "테리야키" // 일본
-    case misoyaki = "미소야키" // 일본
-    case tempuraDonburi = "덴푸라돈부리" // 일본
-    case oyakodon = "오야코돈" // 일본
-    case yakisoba = "야끼소바" // 일본
-    case sukiyaki = "스키야키" // 일본
-    case kareRice = "카레라이스" // 일본
-    case katsu = "가츠"    // 일본
-    case mentaiko = "멘타이코" // 일본
-    case saba = "사바"     // 일본
-    case eel = "장어"      // 일본
-    case sweetAndSourPork = "탕수육" // 중국
-    case kungPaoChicken = "궁보계정" // 중국
-    case springRolls = "춘권" // 중국
-    case mapoTofu = "마파두부" // 중국
-    case hotAndSourSoup = "쯔란탕" // 중국
-    case friedRice = "볶음밥" // 중국
-    case wontonSoup = "완탕" // 중국
-    case chowMein = "차오면" // 중국
-    case beefWithBroccoli = "브로콜리 소고기" // 중국
-    case chickenAndCashew = "치킨과 캐슈넛" // 중국
-    case lemonChicken = "레몬치킨" // 중국
-    case hoisinPork = "호이신포크" // 중국
-    case sichuanNoodles = "사천면" // 중국
-    case blackPepperBeef = "블랙페퍼비프" // 중국
-    case eggDropSoup = "계란국" // 중국
-    case mooShuPork = "무슈포크" // 중국
-    case chickenSatay = "치킨사테이" // 중국
-    case crispyDuck = "크리스피덕" // 중국
-    case charSiu = "차슈" // 중국
-    case dryFriedGreenBeans = "마른볶음 녹두" // 중국
-    case chickenAndCornSoup = "치킨콘수프" // 중국
-    case mongolianBeef = "몽골비프" // 중국
-    case braisedPork = "돼지갈비" // 중국
-    case barbecuePork = "바베큐포크" // 중국
-    case spicyEggplant = "매운가지" // 중국
-    case lemonBeef = "레몬비프" // 중국
-    case shrimpFriedRice = "새우볶음밥" // 중국
-    case porkWonton = "돼지완탕" // 중국
-    case pepperSteak = "페퍼스테이크" // 중국
-    case kungPaoShrimp = "궁보새우" // 중국
-    
-    var displayName: String {
-        return self.rawValue
-    }
-}
-
 struct Food: Identifiable {
     var id = UUID()
     var star: String // 평점
     var location: Area // 지역
-    var foodname: FoodCategory // 음식 이름
     var image: String // 이미지 URL
     var categori: Categori // 메뉴 카테고리
 }
@@ -163,8 +68,23 @@ struct Food: Identifiable {
 
 
 let foods: [Food] = [
-    Food(star: "3", location: .seoul, foodname: .jjajangmyeon, image: "https://sitem.ssgcdn.com/64/98/58/item/1000524589864_i1_750.jpg", categori: .korean),
-    Food(star: "5", location: .jeonnam, foodname: .bibimbap, image: "https://previews.123rf.com/images/meykitchen/meykitchen2305/meykitchen230502570/205175374-%EB%B9%84%EB%B9%94%EB%B0%A5-%EB%8F%BC%EC%A7%80%EA%B3%A0%EA%B8%B0-%EB%B0%A5-%EB%8B%AC%EA%B1%80-%ED%94%84%EB%9D%BC%EC%9D%B4-%EC%95%BC%EC%B1%84.jpg", categori: .korean),
-    Food(star: "4", location: .busan, foodname: .bulgogi, image: "https://i.namu.wiki/i/1fMv9BlDolXCcO2TlBW0zuV14FbmYAQf71zBGjY8RvtoP3x-zDBo0jiQxy4gdQ8ipfOqa9NNgGc5AOPVfRHlzQ.webp", categori: .korean),
-    Food(star: "2", location: .daegu, foodname: .tteokbokki, image: "https://mblogthumb-phinf.pstatic.net/MjAyMjA2MTJfMTY5/MDAxNjU1MDQzNTUxNzMy.5BYZF9-kftaq0d7ISLW02xsdptIObpIXbhJbRVDkaLQg.b4r6k9_CKWTSodj6V6-szOjMzNx_VMH-pklaVdbNGMEg.JPEG.dmsg55/20220612%EF%BC%BF183252.jpg?type=w800", categori: .korean),
+    Food(star: "3", location: .seoul, image: "https://sitem.ssgcdn.com/64/98/58/item/1000524589864_i1_750.jpg", categori: .korean),
+    Food(star: "5", location: .jeonnam, image: "https://previews.123rf.com/images/meykitchen/meykitchen2305/meykitchen230502570/205175374-%EB%B9%84%EB%B9%94%EB%B0%A5-%EB%8F%BC%EC%A7%80%EA%B3%A0%EA%B8%B0-%EB%B0%A5-%EB%8B%AC%EA%B1%80-%ED%94%84%EB%9D%BC%EC%9D%B4-%EC%95%BC%EC%B1%84.jpg", categori: .korean),
+    Food(star: "4", location: .busan, image: "https://i.namu.wiki/i/1fMv9BlDolXCcO2TlBW0zuV14FbmYAQf71zBGjY8RvtoP3x-zDBo0jiQxy4gdQ8ipfOqa9NNgGc5AOPVfRHlzQ.webp", categori: .korean),
+    Food(star: "2", location: .daegu, image: "https://mblogthumb-phinf.pstatic.net/MjAyMjA2MTJfMTY5/MDAxNjU1MDQzNTUxNzMy.5BYZF9-kftaq0d7ISLW02xsdptIObpIXbhJbRVDkaLQg.b4r6k9_CKWTSodj6V6-szOjMzNx_VMH-pklaVdbNGMEg.JPEG.dmsg55/20220612%EF%BC%BF183252.jpg?type=w800", categori: .korean),
+    Food(star: "1", location: .incheon, image: "https://cdn.globale.co.kr/news/photo/202407/29746_42225_4115.jpg", categori: .korean),
+    Food(star: "5", location: .jeju, image: "https://d12zq4w4guyljn.cloudfront.net/750_750_20190430115423_photo1_hUQeASJ3Bxnz.jpg", categori: .korean),
+    Food(star: "5", location: .ulsan, image: "https://static.wtable.co.kr/image/production/service/recipe/1767/8a70db02-325f-4dd0-9780-625a2e7cfefe.jpg", categori: .western),
+    Food(star: "5", location: .gyeonggi, image: "https://i.namu.wiki/i/aN7eMJzy4XAy1yqpL3kHb41MBsSdfPjt1ZqMfDXYk6J3-je6M8dNVOMldpbxhZ-IlO9IfHXMzpZc1tVvat5IjQ.webp", categori: .japanese),
+    Food(star: "5", location: .gyeongnam, image: "https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg", categori: .japanese),
+    Food(star: "3", location: .gwangju, image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/06/08/0fd69039751d2e9d6649ae63bca07cd2.jpg", categori: .japanese),
+    Food(star: "4", location: .gyeongbuk, image: "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202204/11/36db54c6-4c62-40fe-89ae-7abc9bc45568.jpg", categori: .japanese),
+    Food(star: "2", location: .jeonbuk, image: "https://roout.co.kr/m/p/u/gvGpTB9/c/oEonVdoJokx/i/Eqcg4Gbcv2A.jpg", categori: .korean),
+    Food(star: "5", location: .seoul, image: "https://i.ytimg.com/vi/765FumdYgCU/maxresdefault.jpg", categori: .korean),
+    Food(star: "1", location: .chungbuk, image: "https://mblogthumb-phinf.pstatic.net/MjAyMzA1MThfMTgz/MDAxNjg0NDE5ODUxMzU5.k06D1e-oKG2gYy8FRgKtO3ion0SgP9_xnyyNJQKzY_Eg.2400AaZiu5ykHYipFPUwceZFT0Ll9AGTjnX34f_50OEg.PNG.kizaki56/00.png?type=w800", categori: .korean),
+    Food(star: "5", location: .chungnam, image: "https://img.khan.co.kr/news/2021/05/09/l_2021051001000864600073041.jpg", categori: .korean),
+    Food(star: "3", location: .gyeonggi, image: "https://recipe1.ezmember.co.kr/cache/recipe/2015/07/16/e90d4aa496657c666f2821977e3c721e1.jpg", categori: .chinese),
+    Food(star: "2", location: .gyeonggi, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg-mAUr19Fd4mLertjfDKVjV0J9BybFFuNdA&s", categori: .chinese),
+    Food(star: "5", location: .gangwon, image: "https://cdn.imweb.me/thumbnail/20231018/3047515d4d8cd.png", categori: .chinese),
+    Food(star: "4", location: .seoul, image: "https://www.sbfoods-worldwide.com/ko/recipes/deq4os00000008l9-img/10_Stake_A.jpg", categori: .western),
 ]
