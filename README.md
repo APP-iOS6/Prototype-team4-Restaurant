@@ -1,4 +1,7 @@
-# 앱 이름
+# Eatstargram
+<img src="https://github.com/user-attachments/assets/c426edc2-5218-4f4a-b30f-037c1b1fb091" style="width: 300px;" />
+
+# ADS
 작성자의 누적 방문 횟수를 기반으로 맛집 리스트를 확인하고,
 좋아요를 누른 가게 근처로 가게되면 알림을 받게 하는 앱
 
