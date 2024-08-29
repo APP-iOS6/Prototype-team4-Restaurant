@@ -79,8 +79,12 @@ class AddViewController: UIViewController {
     
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .lightGray
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 5
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black.cgColor
         textField.textColor = .black
+        textField.clearButtonMode = .whileEditing
         textField.clearsOnBeginEditing = false
         
         return textField
@@ -105,8 +109,12 @@ class AddViewController: UIViewController {
     
     private lazy var locationTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .lightGray
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 5
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black.cgColor
         textField.textColor = .black
+        textField.clearButtonMode = .whileEditing
         textField.clearsOnBeginEditing = false
         
         return textField
@@ -192,18 +200,46 @@ class AddViewController: UIViewController {
         return label
     }()
     
+    private let emptyLabel: UILabel = {
+        let label = UILabel()
+        label.text = "이미지가 없습니다."
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textAlignment = .center
+        return label
+        
+    }()
+    
     private lazy var addimageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .lightGray
+        imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapImageView))
+                imageView.addGestureRecognizer(tapGesture)
+        
+        
         return imageView
     }()
     
     private lazy var addImageButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.backgroundColor = .systemBlue
-        button.setTitle("이미지 추가", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        //        print("abc")
+//        button.backgroundColor = .systemBlue
+//        button.setTitle("이미지 추가", for: .normal)
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .clear
+           config.baseForegroundColor = .systemBlue
+           config.cornerStyle = .medium
+           
+           // 플러스 아이콘 설정 및 크기 조정
+           let plusImage = UIImage(systemName: "plus.square.on.square")?
+               .withConfiguration(UIImage.SymbolConfiguration(pointSize: 30, weight: .bold))
+           config.image = plusImage
+           config.imagePadding = 8 // 이미지와 버튼의 경계 간격
+           
+           // 버튼에 구성 적용
+           button.configuration = config
+           button.layer.cornerRadius = 25
         
         return button
     }()
@@ -222,7 +258,7 @@ class AddViewController: UIViewController {
     }
     
     private lazy var imageStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [imageLabel, addimageView, addImageButton])
+        let stackView = UIStackView(arrangedSubviews: [imageLabel, addimageView])
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.distribution = .fill
@@ -282,13 +318,19 @@ class AddViewController: UIViewController {
     
     private func configure() {
         view.backgroundColor = .systemBackground
+        
         [titleStackView, topStackView, buttonStackView, imageStackView, infoStackView, registerButton].forEach { scrollView.addSubview($0) }
         view.addSubview(scrollView)
+        addimageView.addSubview(emptyLabel)
+        addimageView.addSubview(addImageButton)
         
         
         addImageButton.addAction(addImageAction, for: .touchUpInside)
         
     }
+    @objc private func didTapImageView() {
+            present(imagePickerController, animated: true)
+        }
     
     // MARK: - AutoLayOut
     
@@ -300,6 +342,8 @@ class AddViewController: UIViewController {
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         addimageView.translatesAutoresizingMaskIntoConstraints = false
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        addImageButton.translatesAutoresizingMaskIntoConstraints = false
         imageStackView.translatesAutoresizingMaskIntoConstraints = false
         infoTextView.translatesAutoresizingMaskIntoConstraints = false
         registerButton.translatesAutoresizingMaskIntoConstraints = false
@@ -336,7 +380,12 @@ class AddViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            addimageView.heightAnchor.constraint(equalToConstant: 150),
+            addimageView.heightAnchor.constraint(equalToConstant: 180),
+            emptyLabel.topAnchor.constraint(equalTo: addimageView.topAnchor, constant: 30),
+            emptyLabel.widthAnchor.constraint(equalTo: addimageView.widthAnchor),
+            addImageButton.centerXAnchor.constraint(equalTo: addimageView.centerXAnchor),
+            addImageButton.centerYAnchor.constraint(equalTo: addimageView.centerYAnchor),
+            
             imageStackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 50),
             imageStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
             imageStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20)
@@ -363,6 +412,9 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
             addimageView.image = selectedImage
+            emptyLabel.isHidden = true // 이미지가 설정되면 emptyLabel 숨기기
+            addImageButton.isHidden = true
+
         }
         picker.dismiss(animated: true, completion: nil)
     }
