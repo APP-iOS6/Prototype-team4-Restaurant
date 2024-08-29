@@ -34,10 +34,10 @@
 - iOS 17.5
 
 # 개발자
-- 박준영
-- 강승우
-- 강희창
-- 김수은
+- [박준영 GitHub](https://github.com/PlayTheApp)
+- [강승우 GitHub](https://github.com/kangsw1025)
+- [강희창 GitHub](https://github.com/saul1113)
+- [김수은 GitHub](https://github.com/sueunal)
 
 # 라이선스
 Licensed under the [MIT](LICENSE) license.
