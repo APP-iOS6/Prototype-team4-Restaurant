@@ -164,7 +164,7 @@ extension RestaurantDetailViewController {
     
     func clickMenuButton() {
         let viewController = MenuViewController()
-        viewController.sheetPresentationController?.detents = [.medium(), .large()]
+        viewController.sheetPresentationController?.detents = [.medium()]
         viewController.sheetPresentationController?.prefersGrabberVisible = true
         
         self.present(viewController, animated: true)

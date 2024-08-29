@@ -18,6 +18,7 @@ class MenuViewController : UIViewController, UITableViewDataSource, UITableViewD
     lazy var titleView: UILabel = {
         let label = UILabel()
         label.text = "메뉴"
+        label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         return label
     }()
@@ -60,7 +61,8 @@ class MenuViewController : UIViewController, UITableViewDataSource, UITableViewD
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             titleView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 50),
-            titleView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10)
+            titleView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
+            titleView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10)
             ])
     }
     
