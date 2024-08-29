@@ -56,7 +56,7 @@ class FavoriteViewController: UIViewController {
             firstRowStackView.addArrangedSubview(storeNameLabel)
             
             let visitCountLabel = UILabel()
-            visitCountLabel.text = "🚪: \(item.visitCount)"
+            visitCountLabel.text = "방문 횟수: \(item.visitCount)"
             visitCountLabel.font = UIFont.systemFont(ofSize: 14)
             visitCountLabel.textAlignment = .right
             firstRowStackView.addArrangedSubview(visitCountLabel)
@@ -77,9 +77,9 @@ class FavoriteViewController: UIViewController {
             ratingScoreLabel.textAlignment = .right
             secondRowStackView.addArrangedSubview(ratingScoreLabel)
             
-            innerVStackView.addArrangedSubview(firstRowStackView)
             innerVStackView.addArrangedSubview(secondRowStackView)
-            
+            innerVStackView.addArrangedSubview(firstRowStackView)
+
             backgroundView.addSubview(innerVStackView)
             
             NSLayoutConstraint.activate([
