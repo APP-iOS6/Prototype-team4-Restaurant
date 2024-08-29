@@ -28,7 +28,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // 버튼의 너비 설정
         NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalToConstant: 85),
+            button.widthAnchor.constraint(equalToConstant: 45),
             button.heightAnchor.constraint(equalToConstant: 28),
         ])
         
@@ -65,17 +65,6 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 self.optionLabel.text = "평점 : \(selectedValue)점대"
                 self.foodCollectionView.reloadData()
             }
-        case "지역" :
-            let AreaViewController = ChoiceAreaViewController()
-            self.present(AreaViewController, animated: true)
-            // StarViewController.modalPresentationStyle = .formSheet
-            AreaViewController.sheetPresentationController?.detents = [.large(), .medium()]
-            
-            AreaViewController.choiceClosure = { selectedValue in
-                self.foodList = foods.filter { $0.location.rawValue == "\(selectedValue)" }
-                self.optionLabel.text = "지역 : \(selectedValue)"
-                self.foodCollectionView.reloadData()
-            }
         case "음식" :
             let FoodViewController = ChoiceFoodViewController()
             self.present(FoodViewController, animated: true)
@@ -101,14 +90,34 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
        
     // 버튼 클릭 시 색상 변경 로직
     private func buttonTapped(_ selectedButton: UIButton) {
-        // 모든 버튼을 회색으로 설정
         buttonStack.arrangedSubviews.forEach { view in
             if let button = view as? UIButton {
                 button.backgroundColor = .white
             }
         }
+        optionButtonStack.arrangedSubviews.forEach { view in
+            if let button = view as? UIButton {
+                button.tintColor = .systemBlue
+            }
+        }
         // 클릭된 버튼을 파란색으로 설정
         selectedButton.backgroundColor = .systemBlue
+    }
+    
+    // 버튼 클릭 시 색상 변경 로직
+    private func symbolbuttonTapped(_ selectedButton: UIButton) {
+        buttonStack.arrangedSubviews.forEach { view in
+            if let button = view as? UIButton {
+                button.backgroundColor = .white
+            }
+        }
+        optionButtonStack.arrangedSubviews.forEach { view in
+            if let button = view as? UIButton {
+                button.tintColor = .systemBlue
+            }
+        }
+        // 클릭된 버튼을 파란색으로 설정
+        selectedButton.tintColor = .systemRed
     }
     
     // 카테고리 버튼을 스택으로 묶음
@@ -116,7 +125,6 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let buttonStackView = UIStackView()
         buttonStackView.axis = .horizontal
         buttonStackView.spacing = 10
-        buttonStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         buttonStackView.isLayoutMarginsRelativeArrangement = true
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         return buttonStackView
@@ -148,7 +156,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         stackView.translatesAutoresizingMaskIntoConstraints = false
         // StackView의 양쪽 여백 설정
             stackView.isLayoutMarginsRelativeArrangement = true
-            stackView.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 10)
+            stackView.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         return stackView
     }()
     
@@ -181,7 +189,51 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "location"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.addAction(UIAction { _ in
+            self.symbolbuttonTapped(button)
+            
+            let AreaViewController = ChoiceAreaViewController()
+            self.present(AreaViewController, animated: true)
+            // StarViewController.modalPresentationStyle = .formSheet
+            AreaViewController.sheetPresentationController?.detents = [.large(), .medium()]
+            
+            AreaViewController.choiceClosure = { selectedValue in
+                self.foodList = foods.filter { $0.location.rawValue == "\(selectedValue)" }
+                self.optionLabel.text = "지역 : \(selectedValue)"
+                self.foodCollectionView.reloadData()
+            }
+        },
+        for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var mylocationButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "scope"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.addAction(UIAction { _ in
+            self.symbolbuttonTapped(button)
+            
+            self.optionLabel.text = "현위치 - 고양시"
+            self.foodList = foods.shuffled()
+            self.foodCollectionView.reloadData()
+        }, for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var optionButtonStack: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 20
+        stackView.distribution = .equalSpacing
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        // StackView의 양쪽 여백 설정
+            stackView.isLayoutMarginsRelativeArrangement = true
+        return stackView
     }()
     
     private lazy var titleMiniStackView: UIStackView = {
@@ -195,7 +247,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return stackView
     }()
     
-    private let categoris = ["전체", "평점", "지역", "음식"]
+    private let categoris = ["전체", "평점", "음식"]
     var foodList: [Food] = []
     
     private lazy var foodCollectionView: UICollectionView = {
@@ -320,17 +372,20 @@ class MyCell: UICollectionViewCell {
         foodCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         titleMiniStackView.addArrangedSubview(titleSearch)
-        titleMiniStackView.addArrangedSubview(titleLocation)
         
         titleStackView.addArrangedSubview(titleImageView)
+        titleStackView.addArrangedSubview(buttonStack)
         titleStackView.addArrangedSubview(titleMiniStackView)
         
+        optionButtonStack.addArrangedSubview(mylocationButton)
+        optionButtonStack.addArrangedSubview(titleLocation)
+        
         optionLabelStack.addArrangedSubview(optionLabel)
+        optionLabelStack.addArrangedSubview(optionButtonStack)
         
         foodCollectionStack.addArrangedSubview(foodCollectionView)
         
         mainStackView.addArrangedSubview(titleStackView)
-        mainStackView.addArrangedSubview(buttonStack)
         mainStackView.addArrangedSubview(optionLabelStack)
         mainStackView.addArrangedSubview(foodCollectionStack)
         
