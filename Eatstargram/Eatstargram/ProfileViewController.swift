@@ -145,8 +145,8 @@ class  ProfileViewController: UIViewController{
             
            // 좋아요 리스트 레이아웃
             favoriteViewController.scrollView.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor, constant: 50),
-            favoriteViewController.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            favoriteViewController.scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            favoriteViewController.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            favoriteViewController.scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             favoriteViewController.scrollView.heightAnchor.constraint(equalToConstant: 500)
         ])
     }

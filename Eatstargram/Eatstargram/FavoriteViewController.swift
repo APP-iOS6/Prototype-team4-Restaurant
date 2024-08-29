@@ -56,7 +56,7 @@ class FavoriteViewController: UIViewController {
             firstRowStackView.addArrangedSubview(storeNameLabel)
             
             let visitCountLabel = UILabel()
-            visitCountLabel.text = "🚪: \(item.visitCount)"
+            visitCountLabel.text = "방문 횟수: \(item.visitCount)"
             visitCountLabel.font = UIFont.systemFont(ofSize: 14)
             visitCountLabel.textAlignment = .right
             firstRowStackView.addArrangedSubview(visitCountLabel)
@@ -77,9 +77,9 @@ class FavoriteViewController: UIViewController {
             ratingScoreLabel.textAlignment = .right
             secondRowStackView.addArrangedSubview(ratingScoreLabel)
             
-            innerVStackView.addArrangedSubview(firstRowStackView)
             innerVStackView.addArrangedSubview(secondRowStackView)
-            
+            innerVStackView.addArrangedSubview(firstRowStackView)
+
             backgroundView.addSubview(innerVStackView)
             
             NSLayoutConstraint.activate([
@@ -99,12 +99,12 @@ class FavoriteViewController: UIViewController {
     }
     func configureLayout(){
         // 여기서 작업할 때만 주석해제
-//        NSLayoutConstraint.activate([
-//            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-//        ])
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
