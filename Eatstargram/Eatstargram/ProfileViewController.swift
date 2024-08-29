@@ -119,7 +119,7 @@ class  ProfileViewController: UIViewController{
         view.backgroundColor = .systemBackground
         
         configureAddSubView()
-        makeIconInfo()
+//        makeIconInfo()
         configureLayout()
     }
     func configureLayout(){
@@ -144,7 +144,7 @@ class  ProfileViewController: UIViewController{
             categoryViewController.hStackView.heightAnchor.constraint(equalToConstant: 80),
             
            // 좋아요 리스트 레이아웃
-            favoriteViewController.scrollView.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor, constant: 50),
+            favoriteViewController.scrollView.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor, constant: 10),
             favoriteViewController.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             favoriteViewController.scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             favoriteViewController.scrollView.heightAnchor.constraint(equalToConstant: 500)
@@ -171,24 +171,24 @@ class  ProfileViewController: UIViewController{
         self.view.addSubview(favoriteViewController.view)
         
     }
-    func makeIconInfo(){
-        let iconInfoList: [String] = ["🚪: 방문횟수", "⭐️: 평균 별점"]
-        for i in iconInfoList{
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = i
-            label.font = .preferredFont(forTextStyle: .subheadline)
-            
-            NSLayoutConstraint.activate([
-                IconInfoHstack.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor),
-                IconInfoHstack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//    func makeIconInfo(){
+//        let iconInfoList: [String] = ["🚪: 방문횟수", "⭐️: 평균 별점"]
+//        for i in iconInfoList{
+//            let label = UILabel()
+//            label.translatesAutoresizingMaskIntoConstraints = false
+//            label.text = i
+//            label.font = .preferredFont(forTextStyle: .subheadline)
+//            
+//            NSLayoutConstraint.activate([
+//                IconInfoHstack.topAnchor.constraint(equalTo: categoryViewController.hStackView.bottomAnchor),
+//                IconInfoHstack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 //                IconInfoVstack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
 //                IconInfoVstack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                IconInfoHstack.heightAnchor.constraint(equalToConstant: 50)
-            ])
-            IconInfoHstack.addArrangedSubview(label)
-        }
-    }
+//                IconInfoHstack.heightAnchor.constraint(equalToConstant: 50)
+//            ])
+//            IconInfoHstack.addArrangedSubview(label)
+//        }
+//    }
 }
 
 
